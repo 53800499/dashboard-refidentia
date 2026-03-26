@@ -21,5 +21,5 @@ export function middleware(request: NextRequest) {
 
 // ✅ Matcher statique
 export const config = {
-  matcher: ["/dashboard/:path*", "/transactions/:path*"],
+  matcher: ["/dashboard/:path*"],
 };
