@@ -410,18 +410,10 @@ const AppSidebar: React.FC = () => {
         }`}
       >
         <Link href="/">
-          {isExpanded || isHovered || isMobileOpen ? (
+          {isExpanded || isHovered || isMobileOpen && (
             <>
                 <Logo className="h-10 w-auto" />{" "}
             </>
-          ) : (
-                <Logo className="h-10 w-auto" />
-           /*  <Image
-              src="/images/logo/logo-icon.svg"
-              alt="Logo"
-              width={32}
-              height={32}
-            /> */
           )}
         </Link>
       </div>
