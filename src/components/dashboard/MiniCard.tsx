@@ -161,8 +161,8 @@ useEffect(() => {
       <div>
         <h2 className="text-3xl mb-6 font-semibold text-gray-900">{DASHBOARD_COMPONENT.MINI_CARD.REPORTSOVERVIEW.TITLE}</h2>
 
-        <div className="flex justify-between gap-2 border-b pb-4">
-          <div ref={wrapperRef} className="flex gap-2">
+        <div className="flex justify-between gap-2 border-b pb-4 flex-wrap">
+          <div ref={wrapperRef} className="flex gap-2 flex-wrap">
             {/* DATE */}
             <div className="relative">
               <button onClick={() => {

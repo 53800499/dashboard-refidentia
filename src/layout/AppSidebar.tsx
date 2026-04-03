@@ -324,7 +324,7 @@ const AppSidebar: React.FC = () => {
                 <Logo className="h-10 w-auto" />{" "}
             </>
           ) : (
-                <Logo className="h-10 w-auto" />
+                <Logo className="h-10 w-30" />
           )}
         </Link>
       </div>
