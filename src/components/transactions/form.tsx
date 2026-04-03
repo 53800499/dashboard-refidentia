@@ -5,6 +5,7 @@ import Input from '../form/input/InputField';
 import Button from '../ui/button/Button';
 import { TransactionFormData } from "@/interface/transaction";
 import { CirclePlus, SquarePen, X } from 'lucide-react';
+import { TRANSACTIONS_COMPONENT_FORM } from '@/constants/wording';
 
 interface TransactionFormProps {
     loading: boolean;
@@ -25,8 +26,8 @@ export default function TransactionForm({form, isOpen, closeModal, setForm, rese
         <div className="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
           <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
             {editingTransaction
-              ? "Modifier la transaction"
-              : "Nouvelle transaction"}
+              ? TRANSACTIONS_COMPONENT_FORM.TITLE_MODIFICATION
+              : TRANSACTIONS_COMPONENT_FORM.TITLE_CREATION}
           </h4>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -36,7 +37,7 @@ export default function TransactionForm({form, isOpen, closeModal, setForm, rese
               </div>
             )}
             <div>
-              <Label>Nom du client</Label>
+              <Label>{TRANSACTIONS_COMPONENT_FORM.FORM.NOM.LABEL}</Label>
               <Input
                 value={form.name}
                 onChange={(e) =>
@@ -46,7 +47,7 @@ export default function TransactionForm({form, isOpen, closeModal, setForm, rese
             </div>
 
             <div>
-              <Label>Email</Label>
+              <Label>{TRANSACTIONS_COMPONENT_FORM.FORM.EMAIL.LABEL}</Label>
               <Input
                 value={form.email}
                 onChange={(e) =>
@@ -56,7 +57,7 @@ export default function TransactionForm({form, isOpen, closeModal, setForm, rese
             </div>
 
             <div>
-              <Label>Montant (€)</Label>
+              <Label>{TRANSACTIONS_COMPONENT_FORM.FORM.MONTANT.LABEL}</Label>
               <Input
                 type="number"
                 value={form.amount}
@@ -75,10 +76,10 @@ export default function TransactionForm({form, isOpen, closeModal, setForm, rese
                 }}
                 className='hover:text-red-800 hover:bg-red-100'
               ><X className="w-4 h-4 mr-1"/>
-                Annuler
+                {TRANSACTIONS_COMPONENT_FORM.BUTTON.CANCEL}
               </Button>
               <Button type="submit" loading={loading}>{loading ?"": editingTransaction ? <SquarePen className="w-4 h-4 mr-1"/> : <CirclePlus className="w-4 h-4 mr-1"/> }
-                {editingTransaction ? "Mettre à jour" : "Ajouter"}
+                {editingTransaction ? TRANSACTIONS_COMPONENT_FORM.BUTTON.UPDATE : TRANSACTIONS_COMPONENT_FORM.BUTTON.ADD}
               </Button>
             </div>
           </form>

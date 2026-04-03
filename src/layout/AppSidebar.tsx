@@ -40,11 +40,11 @@ const navItems: NavItem[] = [
     name: "Dashboard",
     path: "/"
   },
-  /* {
-    icon: <ArrowRightIcon />,
-    name: "Portefeuille",
-    path: "/portefeuille"
-  }, */
+  {
+    icon: <DollarLineIcon />,
+    name: "Soldes",
+    path: "/soldes"
+  },
   {
     icon: <ArrowRightIcon />,
     name: "Transactions",
@@ -60,31 +60,11 @@ const navItems: NavItem[] = [
     name: "Factures",
     path: "/invoice-emecef"
   },
-  /* {
-    icon: <DollarLineIcon />,
-    name: "Revenus & Commissions",
-    path: "/revenue"
-  }, */
-  /* {
-    icon: <BoltIcon />,
-    name: "Financement & Scoring",
-    path: "/financing"
-  }, */
   {
     icon: <BoxCubeIcon />,
     name: "Cartes QR",
     path: "/cards"
   },
-  /* {
-    icon: <LockIcon />,
-    name: "Sécurité & Conformité",
-    path: "/security"
-  },
-  {
-    icon: <ChatIcon />,
-    name: "Support & Assistance",
-    path: "/support"
-  }, */
   {
     icon: <PieChartIcon />,
     name: "Statistiques",
@@ -94,75 +74,9 @@ const navItems: NavItem[] = [
     icon: <PlugInIcon />,
     name: "Configurations",
     path: "/settings"
-  }/* ,
-  {
-    icon: <UserCircleIcon />,
-    name: "Profil",
-    path: "/profile",
-  }, */
+  }
 ];
-/* const navItems: NavItem[] = [
-  {
-    icon: <GridIcon />,
-    name: "Dashboard",
-    path: "/"
-  },
-  {
-    icon: <GroupIcon />,
-    name: "Commerçants",
-    path: "/traders"
-  },
-  {
-    icon: <ArrowRightIcon />,
-    name: "Transactions",
-    path: "/transactions"
-  },
-  {
-    icon: <DocsIcon />,
-    name: "Facturation & EMECEF",
-    path: "/billing"
-  },
-  {
-    icon: <DollarLineIcon />,
-    name: "Revenus & Commissions",
-    path: "/revenue"
-  },
-  {
-    icon: <BoltIcon />,
-    name: "Financement & Scoring",
-    path: "/financing"
-  },
-  {
-    icon: <BoxCubeIcon />,
-    name: "Cartes QR",
-    path: "/cards"
-  },
-  {
-    icon: <LockIcon />,
-    name: "Sécurité & Conformité",
-    path: "/security"
-  },
-  {
-    icon: <ChatIcon />,
-    name: "Support & Assistance",
-    path: "/support"
-  },
-  {
-    icon: <PieChartIcon />,
-    name: "Analytics",
-    path: "/analytics"
-  },
-  {
-    icon: <PlugInIcon />,
-    name: "Paramètres",
-    path: "/settings"
-  },
-  {
-    icon: <UserCircleIcon />,
-    name: "Profil",
-    path: "/profile",
-  },
-]; */
+
 
 const othersItems: NavItem[] = [
   {
@@ -334,7 +248,6 @@ const AppSidebar: React.FC = () => {
   );
   const subMenuRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
-  // const isActive = (path: string) => path === pathname;
    const isActive = useCallback((path: string) => path === pathname, [pathname]);
 
   useEffect(() => {
@@ -357,10 +270,6 @@ const AppSidebar: React.FC = () => {
       });
     });
 
-   /*  // If no submenu item matches, close the open submenu
-    if (!submenuMatched) {
-      setOpenSubmenu(null);
-    } */
   }, [pathname,isActive]);
 
   useEffect(() => {
@@ -410,10 +319,12 @@ const AppSidebar: React.FC = () => {
         }`}
       >
         <Link href="/">
-          {isExpanded || isHovered || isMobileOpen && (
+          {isExpanded || isHovered || isMobileOpen ? (
             <>
                 <Logo className="h-10 w-auto" />{" "}
             </>
+          ) : (
+                <Logo className="h-10 w-auto" />
           )}
         </Link>
       </div>

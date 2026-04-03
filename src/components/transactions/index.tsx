@@ -15,6 +15,7 @@ import useTransactions from "@/hooks/useTansaction";
 import { Factory, MoreVertical, SquarePen, Trash2 } from "lucide-react";
 import { Dropdown } from "../ui/dropdown/Dropdown";
 import { DropdownItem } from "../ui/dropdown/DropdownItem";
+import { TRANSACTIONS_COMPONENT_INDEX_TABLE } from "@/constants/wording";
 
 export const Transactions = () => {
   const router = useRouter();
@@ -142,7 +143,7 @@ export const Transactions = () => {
 
   const columns: Column<Transaction>[] = [
     {
-  header: "Client",
+  header: TRANSACTIONS_COMPONENT_INDEX_TABLE.HEADERS,
   accessor: "customer",
   render: (customer) => {
         // Vérifie que c'est bien un objet avec avatar et name
@@ -165,9 +166,9 @@ export const Transactions = () => {
         return <div className="font-medium">{customer}</div>;
       },
     },
-    { header: "Email", accessor: "email" },
+    { header: TRANSACTIONS_COMPONENT_INDEX_TABLE.HEADERS_1, accessor: "email" },
     {
-      header: "Montant",
+      header: TRANSACTIONS_COMPONENT_INDEX_TABLE.HEADERS_2,
       accessor: "amount",
       render: (value) => {
         if (!value) return <span>0 FCFA</span>;
@@ -175,9 +176,9 @@ export const Transactions = () => {
         return <span>{amount.toLocaleString()} FCFA</span>;
       },
     },
-    { header: "Méthode", accessor: "method" },
+    { header: TRANSACTIONS_COMPONENT_INDEX_TABLE.HEADERS_3, accessor: "method" },
     {
-      header: "Statut",
+      header: TRANSACTIONS_COMPONENT_INDEX_TABLE.HEADERS_4,
       accessor: "status",
       render: (status) => (
         <Badge
@@ -198,9 +199,9 @@ export const Transactions = () => {
         </Badge>
       ),
     },
-    { header: "Date", accessor: "date" },
+    { header: TRANSACTIONS_COMPONENT_INDEX_TABLE.HEADERS_5, accessor: "date" },
     {
-      header: "Actions",
+      header: TRANSACTIONS_COMPONENT_INDEX_TABLE.HEADERS_6,
       accessor: "id",
       render: (id, row) => (
         <div className="relative inline-block">
@@ -274,7 +275,8 @@ export const Transactions = () => {
           </>
   );
   const handleExport = () => {
-    
+    window.print()
+    console.log("Test");
   }
 
   const generateInvoiceFromTransaction = (tx: Transaction) => {

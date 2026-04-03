@@ -100,7 +100,7 @@ export default function useInvoice({ initialPageSize = 10 }: UseInvoiceOptions =
       return newInvoice;
     } catch (err: any) {
       setError(err.message || "Erreur lors de la création");
-      return null;
+      throw err;
     } finally {
       setLoading(false);
     }
